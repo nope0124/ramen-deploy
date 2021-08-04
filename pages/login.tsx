@@ -3,6 +3,8 @@
 import * as React from "react";
 import { ScreenVariantProvider } from "../components/plasmic/myna_dapp/PlasmicGlobalVariant__Screen";
 import { PlasmicLogin } from "../components/plasmic/myna_dapp/PlasmicLogin";
+import { useRouter } from "next/router";
+declare var mynaconnect: any;
 
 function Login() {
   // Use PlasmicLogin to render this component as it was
@@ -21,7 +23,17 @@ function Login() {
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
-  return <PlasmicLogin />;
+  const router = useRouter();
+  return (
+    <PlasmicLogin
+      login={{
+        async onClick() {
+          await mynaconnect.getAuthCert("Ramen");
+          router.push("/balance");
+        },
+      }}
+    />
+  );
 }
 
 export default Login;

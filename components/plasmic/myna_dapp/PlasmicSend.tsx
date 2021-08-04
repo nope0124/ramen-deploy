@@ -53,8 +53,7 @@ export const PlasmicSend__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSend__OverridesType = {
   root?: p.Flex<"div">;
-  form?: p.Flex<"form">;
-  button?: p.Flex<"button">;
+  sendBtn?: p.Flex<"button">;
   send2?: p.Flex<"div">;
   send?: p.Flex<"div">;
 };
@@ -127,10 +126,8 @@ function PlasmicSend__RenderFunc(props: {
                 hasVariant(globalVariants, "screen", "mobileOnly") ? true : true
               ) ? (
                 <div className={classNames(defaultcss.all, sty.freeBox__hpOsG)}>
-                  <form
-                    data-plasmic-name={"form"}
-                    data-plasmic-override={overrides.form}
-                    className={classNames(defaultcss.all, sty.form)}
+                  <div
+                    className={classNames(defaultcss.all, sty.freeBox__aj15S)}
                   >
                     <div
                       className={classNames(
@@ -189,9 +186,9 @@ function PlasmicSend__RenderFunc(props: {
                     </div>
 
                     <button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames(defaultcss.button, sty.button)}
+                      data-plasmic-name={"sendBtn"}
+                      data-plasmic-override={overrides.sendBtn}
+                      className={classNames(defaultcss.button, sty.sendBtn)}
                     >
                       <div
                         className={classNames(
@@ -203,7 +200,7 @@ function PlasmicSend__RenderFunc(props: {
                         {"Send"}
                       </div>
                     </button>
-                  </form>
+                  </div>
                 </div>
               ) : null}
             </div>
@@ -281,9 +278,8 @@ function PlasmicSend__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "form", "button", "send2", "send"],
-  form: ["form", "button"],
-  button: ["button"],
+  root: ["root", "sendBtn", "send2", "send"],
+  sendBtn: ["sendBtn"],
   send2: ["send2"],
   send: ["send"]
 } as const;
@@ -292,8 +288,7 @@ type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  form: "form";
-  button: "button";
+  sendBtn: "button";
   send2: "div";
   send: "div";
 };
@@ -359,8 +354,7 @@ export const PlasmicSend = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    form: makeNodeComponent("form"),
-    button: makeNodeComponent("button"),
+    sendBtn: makeNodeComponent("sendBtn"),
     send2: makeNodeComponent("send2"),
     send: makeNodeComponent("send"),
 
