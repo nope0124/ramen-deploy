@@ -55,7 +55,7 @@ export type PlasmicLogin__OverridesType = {
   root?: p.Flex<"div">;
   img?: p.Flex<"img">;
   残高?: p.Flex<"div">;
-  button?: p.Flex<"button">;
+  login?: p.Flex<"button">;
 };
 
 export interface DefaultLoginProps {
@@ -158,9 +158,9 @@ function PlasmicLogin__RenderFunc(props: {
                   </div>
 
                   <button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames(defaultcss.button, sty.button)}
+                    data-plasmic-name={"login"}
+                    data-plasmic-override={overrides.login}
+                    className={classNames(defaultcss.button, sty.login)}
                   >
                     <div
                       className={classNames(
@@ -195,10 +195,10 @@ function PlasmicLogin__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "残高", "button"],
+  root: ["root", "img", "残高", "login"],
   img: ["img"],
   残高: ["残高"],
-  button: ["button"]
+  login: ["login"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -207,7 +207,7 @@ type NodeDefaultElementType = {
   root: "div";
   img: "img";
   残高: "div";
-  button: "button";
+  login: "button";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -273,7 +273,7 @@ export const PlasmicLogin = Object.assign(
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
     残高: makeNodeComponent("残高"),
-    button: makeNodeComponent("button"),
+    login: makeNodeComponent("login"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
