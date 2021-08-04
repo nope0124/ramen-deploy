@@ -170,7 +170,7 @@
     margin: 0px;
   }
 }
-.form {
+.freeBox__aj15S {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -208,7 +208,7 @@
   align-self: center;
   margin: 0px 0px 20px;
 }
-.button {
+.sendBtn {
   display: flex;
   position: relative;
   flex-direction: column;

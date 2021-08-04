@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ScreenVariantProvider } from "../components/plasmic/myna_dapp/PlasmicGlobalVariant__Screen";
 import { PlasmicSend } from "../components/plasmic/myna_dapp/PlasmicSend";
-
+declare var mynaconnect: any;
 function Send() {
   // Use PlasmicSend to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
@@ -21,7 +21,15 @@ function Send() {
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
-  return <PlasmicSend />;
+  return (
+    <PlasmicSend
+      sendBtn={{
+        onClick() {
+          mynaconnect.signWithAuth("Ramen", "00");
+        },
+      }}
+    />
+  );
 }
 
 export default Send;
